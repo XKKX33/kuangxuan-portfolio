@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[22016,["/kuangxuan-portfolio/_next/static/chunks/1byqemerq-u5u.js","/kuangxuan-portfolio/_next/static/chunks/14mrh2-p_w84d.js"],""]
+3:I[97367,["/kuangxuan-portfolio/_next/static/chunks/1byqemerq-u5u.js","/kuangxuan-portfolio/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"px-6 py-36 md:px-12","children":[["$","p",null,{"className":"font-mono text-xs tracking-[0.2em] text-muted uppercase","children":"404"}],["$","h1",null,{"className":"mt-4 font-display text-4xl tracking-tight md:text-6xl","children":"页面不存在"}],["$","p",null,{"className":"mt-4 text-muted","children":"该项目详情尚未发布，或链接已失效。"}],["$","$L2",null,{"href":"/work","className":"mt-10 inline-flex text-signal underline-offset-4 hover:underline","children":"返回项目列表 →"}]]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"CstcLjbXUt1teAMitYhoh"}
+5:null
