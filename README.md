@@ -37,35 +37,42 @@ npm run dev
 
 公开站点**不展示**手机号、出生年月、户籍、民族、政治面貌。联系方式仅为邮箱。
 
-## 部署（Vercel 免费）
+## 部署（GitHub Pages · 免费）
 
-### 方式 A：GitHub + Vercel 网页（推荐）
+线上地址（启用 Pages 后）：
 
-1. 将本目录推送到 GitHub 仓库（仓库根目录 = 本项目根，含 `package.json`）
-2. 打开 [vercel.com](https://vercel.com) → 用 GitHub 登录
-3. **Add New Project** → 选择该仓库
-4. Framework Preset: **Next.js**（自动识别）
-5. Root Directory: 留空（本仓库根即站点根）
-6. 点击 **Deploy**
+**https://xkkx33.github.io/kuangxuan-portfolio/**
 
-之后每次 `git push` 到 `main` 会自动重新部署。线上地址形如：
+### 自动部署
 
-`https://kuangxuan-portfolio.vercel.app`
+推送到 `main` 后，GitHub Actions 会：
 
-### 方式 B：命令行
+1. `npm ci` + 静态导出（`output: "export"`）
+2. 发布 `out/` 到 GitHub Pages
+
+工作流：`.github/workflows/deploy-pages.yml`
+
+### 首次需要你点一次（仓库设置）
+
+1. 打开：https://github.com/XKKX33/kuangxuan-portfolio/settings/pages  
+2. **Source** 选 **GitHub Actions**（不是 Deploy from a branch）  
+3. 打开：https://github.com/XKKX33/kuangxuan-portfolio/actions  
+4. 若 workflow 未跑，点 **Deploy GitHub Pages** → **Run workflow**  
+5. 等绿色勾后访问上面的网址
+
+### 本地模拟 Pages 构建
 
 ```bash
-npm i -g vercel
-vercel login
-vercel          # 预览
-vercel --prod   # 生产
+# Windows PowerShell
+$env:GITHUB_PAGES="true"; npm run build
+# 产物在 out/
+npx serve out
 ```
 
-### 本地生产构建
+### 本地日常开发（无 basePath）
 
 ```bash
-npm run build
-npm start
+npm run dev
 ```
 
 ## 设计参考

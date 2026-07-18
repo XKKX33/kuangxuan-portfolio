@@ -1,4 +1,5 @@
 import type { SiteContent } from "@/lib/types"
+import { withBasePath } from "@/lib/paths"
 
 export const site: SiteContent = {
   name: "匡璇",
@@ -35,6 +36,6 @@ export const site: SiteContent = {
     "匡璇",
   ],
   loaderFinal: "KUANG XUAN / 2026 PORTFOLIO",
-  resumePdf: "/resume.pdf",
+  resumePdf: withBasePath("/resume.pdf"),
   socials: {},
 }
