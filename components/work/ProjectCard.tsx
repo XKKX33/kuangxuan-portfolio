@@ -16,19 +16,25 @@ export function ProjectCard({ locale, project }: ProjectCardProps) {
       data-cursor="view"
       className="group block"
     >
-      <div
-        className="relative flex aspect-[4/3] items-end overflow-hidden rounded-sm p-6 transition-transform duration-500 group-hover:scale-[1.02]"
-        style={{ backgroundColor: project.visuals.accent }}
-      >
+      <div className="gradient-card relative flex aspect-[4/3] items-end overflow-hidden rounded-sm border border-line/60 p-6 transition-transform duration-500 group-hover:scale-[1.02]">
+        {/* subtle signal tint on hover */}
         <span
-          className="absolute inset-0 opacity-20"
+          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
           style={{
-            backgroundImage:
-              "linear-gradient(135deg, transparent 40%, #fff 40%, #fff 42%, transparent 42%), linear-gradient(45deg, transparent 60%, #fff 60%, #fff 61%, transparent 61%)",
+            background:
+              "linear-gradient(160deg, transparent 30%, rgba(69, 92, 233, 0.12) 100%)",
           }}
           aria-hidden
         />
-        <span className="relative font-mono text-xs tracking-[0.2em] text-white/80 uppercase">
+        <span
+          className="absolute inset-0 opacity-[0.12]"
+          style={{
+            backgroundImage:
+              "linear-gradient(135deg, transparent 40%, #1c1d20 40%, #1c1d20 41.5%, transparent 41.5%), linear-gradient(45deg, transparent 60%, #1c1d20 60%, #1c1d20 61%, transparent 61%)",
+          }}
+          aria-hidden
+        />
+        <span className="relative font-mono text-xs tracking-[0.2em] text-ink/70 uppercase">
           {project.visuals.label}
         </span>
       </div>
