@@ -22,16 +22,21 @@ npm run dev
 - `content/projects.ts` — 项目列表与案例详情
 - `content/about.ts` — 教育、能力、技能
 
-## 页面
+## 页面（中文默认 / 英文 `/en`）
 
 | 路径 | 说明 |
 |------|------|
-| `/` | 首页：Hero → 字幕 → 精选项目 → 概览 → 时间轴 → 能力 |
-| `/work` | 项目列表（List / Grid） |
-| `/work/[slug]` | 案例详情（3 个完整页） |
-| `/about` | 关于 |
-| `/contact` | 联系 |
-| `/resume.pdf` | 简历下载 |
+| `/` · `/en` | 首页：Hero → 字幕 → 精选项目 → 概览 → 时间轴 → 能力 |
+| `/work` · `/en/work` | 项目列表（List / Grid） |
+| `/work/[slug]` · `/en/work/[slug]` | 案例详情（3 个完整页） |
+| `/about` · `/en/about` | 关于 |
+| `/contact` · `/en/contact` | 联系 |
+| `/resume.pdf` | 简历下载（中英共用） |
+
+线上示例：
+
+- 中文：https://xkkx33.github.io/kuangxuan-portfolio/
+- 英文：https://xkkx33.github.io/kuangxuan-portfolio/en/
 
 ## 隐私
 
