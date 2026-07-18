@@ -15,20 +15,22 @@ export function ContactBand({ locale, ui }: ContactBandProps) {
   return (
     <section
       id="contact-band"
-      className="bg-surface-dark px-6 py-20 text-ink-inverse md:px-12 md:py-28"
+      className="border-t border-line bg-surface-dark px-6 py-16 text-ink-inverse md:px-12 md:py-24"
       aria-labelledby="contact-heading"
     >
-      <p className="font-mono text-xs tracking-[0.2em] text-muted uppercase">
+      <p className="font-mono text-xs tracking-[0.18em] text-white/45 uppercase">
         Contact
       </p>
       <h2
         id="contact-heading"
-        className="mt-4 font-display text-4xl tracking-tight md:text-6xl"
+        className="mt-4 font-display text-4xl font-normal tracking-tight md:text-5xl"
       >
         {ui.contact.headline}
       </h2>
-      <p className="mt-4 max-w-xl text-lg text-white/70">{support}</p>
-      <div className="mt-10 flex flex-wrap gap-4">
+      <p className="mt-4 max-w-xl text-base leading-relaxed text-white/65 md:text-lg">
+        {support}
+      </p>
+      <div className="mt-10 flex flex-wrap gap-3">
         <a
           className="rounded-full bg-signal px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
           href={`mailto:${ui.email}`}
@@ -37,7 +39,7 @@ export function ContactBand({ locale, ui }: ContactBandProps) {
           {ui.email}
         </a>
         <a
-          className="rounded-full border border-white/30 px-6 py-3 text-sm transition-colors hover:border-white/60"
+          className="rounded-full border border-white/25 px-6 py-3 text-sm text-white/90 transition-colors hover:border-white/50 hover:text-white"
           href={ui.resumePdf}
           download
           data-cursor="pdf"

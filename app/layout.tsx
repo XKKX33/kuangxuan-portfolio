@@ -29,8 +29,9 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        {/* Noto Serif SC: web fallback when Songti SC / SimSun unavailable */}
         <link
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Syne:wght@500;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>

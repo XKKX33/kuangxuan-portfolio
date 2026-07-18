@@ -1,16 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #f4f2ed;
-  --ink: #0f0f0f;
-  --muted: #7a7a74;
-  --line: #d8d4cb;
-  --signal: #455ce9;
-  --ink-inverse: #f4f2ed;
-  --surface-dark: #1c1d20;
-  --font-display: "Syne", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
-  --font-body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  /* 清新 editorial paper — cool clean white, soft ink */
+  --bg: #fafaf7;
+  --ink: #22221f;
+  --muted: #7c7e78;
+  --line: #e4e2da;
+  --signal: #3d5ae8;
+  --ink-inverse: #fafaf7;
+  --surface-dark: #2e2f33;
+
+  /* Latin: Times New Roman · CJK: 宋体 stack */
+  --font-display: "Times New Roman", Times, "Songti SC", "SimSun", "Noto Serif SC",
+    serif;
+  --font-body: "Times New Roman", Times, "Songti SC", "SimSun", "Noto Serif SC",
+    serif;
+  /* Meta labels use same serif for consistent 清新 editorial feel */
+  --font-mono: "Times New Roman", Times, "Songti SC", "SimSun", "Noto Serif SC",
+    serif;
 }
 
 @theme inline {
@@ -36,10 +43,12 @@ body {
   background: var(--bg);
   color: var(--ink);
   overflow-x: clip;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--signal) 28%, transparent);
+  background: color-mix(in srgb, var(--signal) 22%, transparent);
   color: var(--ink);
 }
 

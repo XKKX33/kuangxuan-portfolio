@@ -18,11 +18,11 @@ export function Hero({ locale, ui }: HeroProps) {
         2026 Portfolio
       </p>
 
-      <h1 className="font-display text-[clamp(3.5rem,12vw,8.5rem)] font-semibold leading-[0.9] tracking-tight text-ink">
+      <h1 className="font-display text-[clamp(3.5rem,12vw,8.5rem)] font-normal leading-[0.92] tracking-tight text-ink">
         {ui.name}
       </h1>
 
-      <p className="mt-5 font-display text-lg tracking-tight text-ink/90 md:text-2xl">
+      <p className="mt-5 font-display text-lg tracking-tight text-ink/85 md:text-2xl">
         {ui.identity.roleLine}
       </p>
 
