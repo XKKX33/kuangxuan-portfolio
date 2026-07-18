@@ -1,0 +1,86 @@
+import type { AboutContent } from "@/lib/types"
+
+export const about: AboutContent = {
+  headline: "把数据变成模型、系统与可执行决策。",
+  headlineEn: "I turn data into\nmodels, systems\nand decisions.",
+  photoAlt: "匡璇个人照片占位",
+  education: [
+    {
+      school: "厦门大学",
+      college: "经济学院",
+      degree: "硕士",
+      major: "应用统计 / 人工智能与数据科学方向",
+      period: "2025.09–至今",
+      courses: [
+        "高级计量经济学",
+        "深度学习与人工智能",
+        "高等统计学习",
+        "高级宏/微观经济学",
+        "高级金融学",
+      ],
+      honors: [],
+    },
+    {
+      school: "四川大学",
+      college: "商学院",
+      degree: "本科",
+      major: "管理科学",
+      period: "2021.09–2025.06",
+      courses: [
+        "机器学习",
+        "Python与程序设计",
+        "随机运筹学",
+        "多元统计分析",
+        "时间序列分析",
+        "博弈论",
+        "数据营销分析",
+      ],
+      honors: [
+        "全国大学生数学竞赛省一等奖",
+        "学创杯创业综合模拟大赛校级三等奖",
+        "统计建模省二等奖",
+      ],
+    },
+  ],
+  capabilities: [
+    {
+      index: "01",
+      title: "推荐系统",
+      titleEn: "Recommendation",
+      body: "召回、排序、序列建模、用户行为特征与多域兴趣融合。",
+    },
+    {
+      index: "02",
+      title: "智能体",
+      titleEn: "AI Agent",
+      body: "将领域知识、数据工具与大语言模型组合成结构化决策工作流。",
+    },
+    {
+      index: "03",
+      title: "数据智能",
+      titleEn: "Data Intelligence",
+      body: "数据清洗、自动化采集、统计建模与可解释分析。",
+    },
+  ],
+  skills: [
+    "Python",
+    "PyTorch",
+    "SQL",
+    "Pandas",
+    "Recommendation",
+    "Ranking",
+    "Statistics",
+    "Codex",
+    "Claude",
+    "Gemini",
+    "DeepSeek",
+    "Tableau",
+    "Selenium",
+    "OpenCV",
+  ],
+  researchInterests: [
+    "推荐排序与多域序列建模",
+    "可约束的金融/投研 Agent",
+    "数据治理与可解释决策",
+  ],
+}
