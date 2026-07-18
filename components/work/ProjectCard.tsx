@@ -1,15 +1,17 @@
 import Link from "next/link"
-import type { Project } from "@/lib/types"
-import { getProjectHref } from "@/lib/projects"
+import type { LocalizedProject } from "@/content/i18n"
+import { getProjectHref } from "@/content/i18n"
+import type { Locale } from "@/lib/i18n"
 
 type ProjectCardProps = {
-  project: Project
+  locale: Locale
+  project: LocalizedProject
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ locale, project }: ProjectCardProps) {
   return (
     <Link
-      href={getProjectHref(project)}
+      href={getProjectHref(locale, project)}
       id={project.slug}
       data-cursor="view"
       className="group block"

@@ -1,17 +1,18 @@
 import type { Metadata } from "next"
 import "./globals.css"
-import { SiteHeader } from "@/components/chrome/SiteHeader"
-import { ContactBand } from "@/components/chrome/ContactBand"
+import { AppChrome } from "@/components/chrome/AppChrome"
 import { CustomCursor } from "@/components/chrome/CustomCursor"
 import { SmoothScroll } from "@/components/providers/SmoothScroll"
-import { site } from "@/content/site"
+import { getUi } from "@/content/i18n"
+
+const defaultUi = getUi("zh")
 
 export const metadata: Metadata = {
   title: {
-    default: `${site.nameEn} · Portfolio`,
-    template: `%s · ${site.nameEn}`,
+    default: defaultUi.meta.title,
+    template: `%s · ${defaultUi.name}`,
   },
-  description: site.identity.cn,
+  description: defaultUi.meta.description,
 }
 
 export default function RootLayout({
@@ -29,21 +30,17 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Syne:wght@500;600;700;800&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full flex flex-col bg-bg text-ink">
+      <body className="flex min-h-full flex-col bg-bg text-ink">
         <a className="skip-link" href="#main">
-          跳到主要内容
+          跳到主要内容 / Skip to content
         </a>
         <SmoothScroll>
           <CustomCursor />
-          <SiteHeader />
-          <main id="main" className="flex-1">
-            {children}
-          </main>
-          <ContactBand />
+          <AppChrome>{children}</AppChrome>
         </SmoothScroll>
       </body>
     </html>

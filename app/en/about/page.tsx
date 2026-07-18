@@ -5,7 +5,7 @@ import { EducationList } from "@/components/about/EducationList"
 import { SkillChips } from "@/components/about/SkillChips"
 import { Capabilities } from "@/components/home/Capabilities"
 
-const locale = "zh" as const
+const locale = "en" as const
 const ui = getUi(locale)
 const about = getAbout(locale)
 
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: ui.meta.description,
 }
 
-export default function AboutPage() {
+export default function EnAboutPage() {
   return (
     <>
       <AboutHero locale={locale} ui={ui} about={about} />

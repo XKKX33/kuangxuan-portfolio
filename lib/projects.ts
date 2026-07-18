@@ -1,30 +1,39 @@
-import { projects } from "@/content/projects"
-import type { Project } from "@/lib/types"
+/**
+ * @deprecated Prefer locale-aware helpers from `@/content/i18n`.
+ * Kept as thin re-exports for any residual callers (defaults to zh).
+ */
+import {
+  getDetailProjects as getDetailProjectsI18n,
+  getFeaturedProjects as getFeaturedProjectsI18n,
+  getNextProject as getNextProjectI18n,
+  getProjectBySlug as getProjectBySlugI18n,
+  getProjectHref as getProjectHrefI18n,
+  getProjects,
+  type LocalizedProject,
+} from "@/content/i18n"
 
-export function getAllProjects(): Project[] {
-  return projects
+export type Project = LocalizedProject
+
+export function getAllProjects(): LocalizedProject[] {
+  return getProjects("zh")
 }
 
-export function getFeaturedProjects(): Project[] {
-  return projects.filter((p) => p.featured)
+export function getFeaturedProjects(): LocalizedProject[] {
+  return getFeaturedProjectsI18n("zh")
 }
 
-export function getProjectBySlug(slug: string): Project | undefined {
-  return projects.find((p) => p.slug === slug)
+export function getProjectBySlug(slug: string): LocalizedProject | undefined {
+  return getProjectBySlugI18n("zh", slug)
 }
 
-export function getDetailProjects(): Project[] {
-  return projects.filter((p) => p.hasDetail)
+export function getDetailProjects(): LocalizedProject[] {
+  return getDetailProjectsI18n("zh")
 }
 
-export function getNextProject(slug: string): Project | undefined {
-  const details = getDetailProjects()
-  const i = details.findIndex((p) => p.slug === slug)
-  if (i < 0) return undefined
-  return details[(i + 1) % details.length]
+export function getNextProject(slug: string): LocalizedProject | undefined {
+  return getNextProjectI18n("zh", slug)
 }
 
-export function getProjectHref(project: Project): string {
-  if (project.hasDetail) return `/work/${project.slug}`
-  return `/work#${project.slug}`
+export function getProjectHref(project: LocalizedProject): string {
+  return getProjectHrefI18n("zh", project)
 }

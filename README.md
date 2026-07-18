@@ -39,33 +39,30 @@ npm run dev
 
 ## 部署（GitHub Pages · 免费）
 
-线上地址（启用 Pages 后）：
+线上地址：
 
 **https://xkkx33.github.io/kuangxuan-portfolio/**
 
-### 自动部署
+### 当前部署方式
 
-推送到 `main` 后，GitHub Actions 会：
+静态站点发布在 **`gh-pages` 分支**（仓库 Settings → Pages → Deploy from a branch → `gh-pages` / `/`）。
 
-1. `npm ci` + 静态导出（`output: "export"`）
-2. 发布 `out/` 到 GitHub Pages
+更新网站时在本机执行：
 
-工作流：`.github/workflows/deploy-pages.yml`
+```bash
+# Windows PowerShell
+$env:GITHUB_PAGES="true"
+npm run build
+# 将 out/ 推到 gh-pages（可用 npx gh-pages -d out）
+npx --yes gh-pages -d out -b gh-pages
+```
 
-### 首次需要你点一次（仓库设置）
-
-1. 打开：https://github.com/XKKX33/kuangxuan-portfolio/settings/pages  
-2. **Source** 选 **GitHub Actions**（不是 Deploy from a branch）  
-3. 打开：https://github.com/XKKX33/kuangxuan-portfolio/actions  
-4. 若 workflow 未跑，点 **Deploy GitHub Pages** → **Run workflow**  
-5. 等绿色勾后访问上面的网址
+或继续用「构建 out → 推送到 gh-pages」的脚本/手动流程。
 
 ### 本地模拟 Pages 构建
 
 ```bash
-# Windows PowerShell
 $env:GITHUB_PAGES="true"; npm run build
-# 产物在 out/
 npx serve out
 ```
 

@@ -1,18 +1,25 @@
 "use client"
 
+import type { Locale } from "@/lib/i18n"
+
 type ViewMode = "list" | "grid"
 
 type ViewToggleProps = {
   mode: ViewMode
   onChange: (mode: ViewMode) => void
+  locale?: Locale
 }
 
-export function ViewToggle({ mode, onChange }: ViewToggleProps) {
+export function ViewToggle({ mode, onChange, locale = "zh" }: ViewToggleProps) {
+  const aria = locale === "zh" ? "视图切换" : "View mode"
+  const listLabel = locale === "zh" ? "列表" : "List"
+  const gridLabel = locale === "zh" ? "网格" : "Grid"
+
   return (
     <div
       className="inline-flex rounded-full border border-line p-1"
       role="group"
-      aria-label="视图切换"
+      aria-label={aria}
     >
       <button
         type="button"
@@ -24,7 +31,7 @@ export function ViewToggle({ mode, onChange }: ViewToggleProps) {
             : "text-ink/70 hover:text-ink"
         }`}
       >
-        List
+        {listLabel}
       </button>
       <button
         type="button"
@@ -36,7 +43,7 @@ export function ViewToggle({ mode, onChange }: ViewToggleProps) {
             : "text-ink/70 hover:text-ink"
         }`}
       >
-        Grid
+        {gridLabel}
       </button>
     </div>
   )

@@ -1,16 +1,21 @@
-import { about } from "@/content/about"
+import type { LocalizedAbout, UiCopy } from "@/content/i18n"
 
-export function SkillChips() {
+type SkillChipsProps = {
+  ui: UiCopy
+  about: LocalizedAbout
+}
+
+export function SkillChips({ ui, about }: SkillChipsProps) {
   return (
-    <section className="px-6 py-20 md:px-12 md:py-28" aria-labelledby="skills">
+    <section className="px-6 py-14 md:px-12 md:py-16" aria-labelledby="skills">
       <p className="font-mono text-xs tracking-[0.2em] text-muted uppercase">
-        Skills & Interests
+        Skills
       </p>
       <h2
         id="skills"
         className="mt-2 font-display text-3xl tracking-tight md:text-5xl"
       >
-        技能与兴趣
+        {ui.about.skillsTitle}
       </h2>
 
       <div className="mt-10 flex flex-wrap gap-2">
@@ -24,7 +29,10 @@ export function SkillChips() {
         ))}
       </div>
 
-      <ul className="mt-12 space-y-3 border-t border-line pt-8">
+      <h3 className="mt-12 font-display text-xl tracking-tight">
+        {ui.about.researchTitle}
+      </h3>
+      <ul className="mt-6 space-y-3 border-t border-line pt-8">
         {about.researchInterests.map((item) => (
           <li key={item} className="text-base text-ink/80">
             · {item}

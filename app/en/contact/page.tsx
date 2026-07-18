@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { getUi } from "@/content/i18n"
 
-const locale = "zh" as const
+const locale = "en" as const
 const ui = getUi(locale)
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: ui.meta.description,
 }
 
-export default function ContactPage() {
+export default function EnContactPage() {
   return (
     <div className="px-6 py-28 md:px-12 md:py-36">
       <p className="font-mono text-xs tracking-[0.2em] text-muted uppercase">
@@ -19,7 +19,8 @@ export default function ContactPage() {
         {ui.contact.headline}
       </h1>
       <p className="mt-6 max-w-xl text-base leading-relaxed text-muted">
-        公开站点仅展示邮箱。如需进一步沟通，请先邮件联系，或查看下载版 PDF。
+        This public site shows email only. For further conversation, write first
+        or download the PDF.
       </p>
       <div className="mt-12 flex flex-col gap-4 sm:flex-row">
         <a

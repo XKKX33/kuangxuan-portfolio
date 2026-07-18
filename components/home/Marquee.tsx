@@ -1,25 +1,24 @@
-import { site } from "@/content/site"
+import type { UiCopy } from "@/content/i18n"
 
-export function Marquee() {
-  const items = [
-    ...site.marquee,
-    ...site.marqueeCn,
-    ...site.marquee,
-    ...site.marqueeCn,
-  ]
+type MarqueeProps = {
+  ui: UiCopy
+}
+
+export function Marquee({ ui }: MarqueeProps) {
+  const items = [...ui.marquee, ...ui.marquee]
   const line = items.join("  —  ")
 
   return (
     <section
-      className="border-y border-line py-6 overflow-hidden"
-      aria-label="领域关键词"
+      className="overflow-hidden border-y border-line py-5"
+      aria-label="keywords"
     >
       <div className="marquee-track flex w-max gap-0 whitespace-nowrap">
-        <p className="px-4 font-display text-3xl tracking-tight text-ink md:text-5xl">
+        <p className="px-4 font-display text-2xl tracking-tight text-ink md:text-4xl">
           {line}
         </p>
         <p
-          className="px-4 font-display text-3xl tracking-tight text-ink md:text-5xl"
+          className="px-4 font-display text-2xl tracking-tight text-ink md:text-4xl"
           aria-hidden
         >
           {line}

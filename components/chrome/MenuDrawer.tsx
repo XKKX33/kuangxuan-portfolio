@@ -2,15 +2,24 @@
 
 import Link from "next/link"
 import { useEffect, useRef } from "react"
-import { site } from "@/content/site"
+import type { UiCopy } from "@/content/i18n"
+import type { Locale } from "@/lib/i18n"
+import { localePath } from "@/lib/i18n"
+import { LanguageSwitch } from "@/components/chrome/LanguageSwitch"
 
 type MenuDrawerProps = {
   open: boolean
   onClose: () => void
+  locale: Locale
+  ui: UiCopy
 }
 
-export function MenuDrawer({ open, onClose }: MenuDrawerProps) {
+export function MenuDrawer({ open, onClose, locale, ui }: MenuDrawerProps) {
   const firstLinkRef = useRef<HTMLAnchorElement>(null)
+  const navLabel = locale === "zh" ? "导航" : "Navigation"
+  const closeLabel = locale === "zh" ? "关闭" : "Close"
+  const menuAria = locale === "zh" ? "站点菜单" : "Site menu"
+  const drawerAria = locale === "zh" ? "抽屉导航" : "Drawer navigation"
 
   useEffect(() => {
     if (!open) return
@@ -36,31 +45,31 @@ export function MenuDrawer({ open, onClose }: MenuDrawerProps) {
         id="site-menu"
         role="dialog"
         aria-modal="true"
-        aria-label="站点菜单"
+        aria-label={menuAria}
         className={`fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col bg-surface-dark px-8 py-10 text-ink-inverse transition-transform duration-500 ease-out ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="mb-12 flex items-center justify-between">
           <p className="font-mono text-xs tracking-[0.2em] text-muted uppercase">
-            Navigation
+            {navLabel}
           </p>
           <button
             type="button"
             onClick={onClose}
             className="rounded-full border border-white/20 px-4 py-2 text-sm"
           >
-            Close
+            {closeLabel}
           </button>
         </div>
 
-        <nav aria-label="抽屉导航">
+        <nav aria-label={drawerAria}>
           <ul className="space-y-6">
-            {site.nav.map((item, i) => (
+            {ui.nav.map((item, i) => (
               <li key={item.href}>
                 <Link
                   ref={i === 0 ? firstLinkRef : undefined}
-                  href={item.href}
+                  href={localePath(locale, item.href)}
                   onClick={onClose}
                   className="group flex items-baseline gap-4"
                 >
@@ -76,20 +85,24 @@ export function MenuDrawer({ open, onClose }: MenuDrawerProps) {
           </ul>
         </nav>
 
+        <div className="mt-10">
+          <LanguageSwitch locale={locale} tone="inverse" />
+        </div>
+
         <div className="mt-auto space-y-3 pt-12">
           <a
-            href={site.resumePdf}
+            href={ui.resumePdf}
             download
             className="block text-sm text-white/70 underline-offset-4 hover:text-white hover:underline"
             data-cursor="pdf"
           >
-            下载简历 PDF
+            {ui.hero.ctaResume}
           </a>
           <a
-            href={`mailto:${site.email}`}
+            href={`mailto:${ui.email}`}
             className="block text-sm text-white/70 hover:text-white"
           >
-            {site.email}
+            {ui.email}
           </a>
         </div>
       </aside>

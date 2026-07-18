@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { getUi } from "@/content/i18n"
 import { HomePage } from "@/components/home/HomePage"
 
-const locale = "zh" as const
+const locale = "en" as const
 const ui = getUi(locale)
 
 export const metadata: Metadata = {
@@ -10,6 +10,6 @@ export const metadata: Metadata = {
   description: ui.meta.description,
 }
 
-export default function ZhHomePage() {
+export default function EnHomePage() {
   return <HomePage locale={locale} />
 }

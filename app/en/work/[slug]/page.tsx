@@ -8,7 +8,7 @@ import {
 } from "@/content/i18n"
 import { ProjectDetail } from "@/components/work/ProjectDetail"
 
-const locale = "zh" as const
+const locale = "en" as const
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -32,7 +32,7 @@ export async function generateMetadata({
   }
 }
 
-export default async function ProjectPage({ params }: PageProps) {
+export default async function EnProjectPage({ params }: PageProps) {
   const { slug } = await params
   const project = getProjectBySlug(locale, slug)
 

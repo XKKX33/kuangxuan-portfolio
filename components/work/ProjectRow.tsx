@@ -1,9 +1,11 @@
 import Link from "next/link"
-import type { Project } from "@/lib/types"
-import { getProjectHref } from "@/lib/projects"
+import type { LocalizedProject } from "@/content/i18n"
+import { getProjectHref } from "@/content/i18n"
+import type { Locale } from "@/lib/i18n"
 
 type ProjectRowProps = {
-  project: Project
+  locale: Locale
+  project: LocalizedProject
   dimmed?: boolean
   active?: boolean
   onEnter?: () => void
@@ -11,6 +13,7 @@ type ProjectRowProps = {
 }
 
 export function ProjectRow({
+  locale,
   project,
   dimmed = false,
   active = false,
@@ -19,7 +22,7 @@ export function ProjectRow({
 }: ProjectRowProps) {
   return (
     <Link
-      href={getProjectHref(project)}
+      href={getProjectHref(locale, project)}
       id={project.slug}
       data-cursor="view"
       onMouseEnter={onEnter}
@@ -35,7 +38,7 @@ export function ProjectRow({
             →
           </span>
         </p>
-        <p className="mt-1 text-sm text-muted">{project.titleCn}</p>
+        <p className="mt-1 text-sm text-muted">{project.summary}</p>
       </div>
       <p className="text-sm text-ink/70">{project.field}</p>
       <p className="font-mono text-xs text-muted">{project.role}</p>

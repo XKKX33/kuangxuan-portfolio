@@ -1,8 +1,21 @@
-import { about } from "@/content/about"
+import type { LocalizedAbout, UiCopy } from "@/content/i18n"
+import type { Locale } from "@/lib/i18n"
 
-export function EducationList() {
+type EducationListProps = {
+  locale: Locale
+  ui: UiCopy
+  about: LocalizedAbout
+}
+
+export function EducationList({ locale, ui, about }: EducationListProps) {
+  const coursesLabel = locale === "zh" ? "课程：" : "Courses: "
+  const joinSep = locale === "zh" ? "、" : ", "
+
   return (
-    <section className="px-6 py-20 md:px-12 md:py-28" aria-labelledby="education">
+    <section
+      className="px-6 py-14 md:px-12 md:py-16"
+      aria-labelledby="education"
+    >
       <p className="font-mono text-xs tracking-[0.2em] text-muted uppercase">
         Education
       </p>
@@ -10,9 +23,9 @@ export function EducationList() {
         id="education"
         className="mt-2 font-display text-3xl tracking-tight md:text-5xl"
       >
-        教育经历
+        {ui.about.educationTitle}
       </h2>
-      <ol className="mt-12 space-y-10 border-t border-line pt-10">
+      <ol className="mt-10 space-y-10 border-t border-line pt-10">
         {about.education.map((ed) => (
           <li
             key={`${ed.school}-${ed.period}`}
@@ -20,15 +33,14 @@ export function EducationList() {
           >
             <p className="font-mono text-xs text-muted">{ed.period}</p>
             <div>
-              <p className="font-display text-2xl tracking-tight">
-                {ed.school}
-              </p>
+              <p className="font-display text-2xl tracking-tight">{ed.school}</p>
               <p className="mt-1 text-sm text-ink/80">
                 {ed.college} · {ed.degree} · {ed.major}
               </p>
               {ed.courses.length > 0 ? (
                 <p className="mt-3 text-sm leading-relaxed text-muted">
-                  课程：{ed.courses.join("、")}
+                  {coursesLabel}
+                  {ed.courses.join(joinSep)}
                 </p>
               ) : null}
               {ed.honors.length > 0 ? (

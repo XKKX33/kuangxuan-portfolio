@@ -1,13 +1,17 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { site } from "@/content/site"
+import type { UiCopy } from "@/content/i18n"
 import { prefersReducedMotion } from "@/lib/motion"
 
-export function Loader() {
+type LoaderProps = {
+  ui: UiCopy
+}
+
+export function Loader({ ui }: LoaderProps) {
   const [visible, setVisible] = useState(true)
   const [exiting, setExiting] = useState(false)
-  const [word, setWord] = useState(site.loaderWords[0] ?? "")
+  const [word, setWord] = useState(ui.loaderWords[0] ?? "")
   const [phase, setPhase] = useState<"words" | "final">("words")
 
   useEffect(() => {
@@ -16,18 +20,22 @@ export function Loader() {
       return
     }
 
-    if (typeof sessionStorage !== "undefined" && sessionStorage.getItem("loaderSeen") === "1") {
+    if (
+      typeof sessionStorage !== "undefined" &&
+      sessionStorage.getItem("loaderSeen") === "1"
+    ) {
       setVisible(false)
       return
     }
 
+    const words = ui.loaderWords
     let index = 0
     const wordTimer = window.setInterval(() => {
       index += 1
-      if (index >= site.loaderWords.length) {
+      if (index >= words.length) {
         window.clearInterval(wordTimer)
         setPhase("final")
-        setWord(site.loaderFinal)
+        setWord(ui.loaderFinal)
         window.setTimeout(() => {
           setExiting(true)
           window.setTimeout(() => {
@@ -37,11 +45,11 @@ export function Loader() {
         }, 600)
         return
       }
-      setWord(site.loaderWords[index] ?? "")
+      setWord(words[index] ?? "")
     }, 180)
 
     return () => window.clearInterval(wordTimer)
-  }, [])
+  }, [ui.loaderFinal, ui.loaderWords])
 
   if (!visible) return null
 
@@ -55,7 +63,7 @@ export function Loader() {
       <p
         className={`font-display tracking-tight text-ink ${
           phase === "final"
-            ? "text-sm md:text-base tracking-[0.15em]"
+            ? "text-sm tracking-[0.15em] md:text-base"
             : "text-3xl md:text-5xl"
         }`}
       >

@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { getProjects, getUi } from "@/content/i18n"
 import { WorkView } from "@/components/work/WorkView"
 
-const locale = "zh" as const
+const locale = "en" as const
 const ui = getUi(locale)
 
 export const metadata: Metadata = {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: ui.meta.description,
 }
 
-export default function WorkPage() {
+export default function EnWorkPage() {
   const projects = getProjects(locale)
 
   return (
@@ -23,8 +23,8 @@ export default function WorkPage() {
           {ui.work.sectionTitle}
         </h1>
         <p className="mt-4 max-w-xl text-base text-muted">
-          列表便于快速扫描；网格强调视觉节奏。详情页采用挑战 / 我的工作 / 系统结构
-          / 反思叙事。
+          List view for scanning; grid for visual rhythm. Detail pages use
+          Challenge / What I did / System / Reflection.
         </p>
       </header>
       <WorkView locale={locale} ui={ui} projects={projects} />
