@@ -79,4 +79,4 @@ npm run dev
 
 ## 设计参考
 
-信息节奏参考 Dennis Snellenberg（身份首屏 → 项目主体 → 能力 About → 联系收尾），视觉为独立 Signal Studio 体系（**Palette 4 — Pastel Tech**：冷蓝灰纸感 `#F0F4F8` + 信号蓝 `#2563EB`，非米白/暖灰），非原站照抄。
+信息节奏参考 Dennis Snellenberg（身份首屏 → 项目主体 → 能力 About → 联系收尾）。视觉为 **Apple × Notion hybrid**：纯白底 + 系统无衬线 + Apple 蓝 `#0071E3` 主 CTA，几乎无装饰渐变。

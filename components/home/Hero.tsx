@@ -13,10 +13,9 @@ export function Hero({ locale, ui }: HeroProps) {
   const scrollHint = locale === "zh" ? "向下浏览" : "Scroll to explore"
 
   return (
-    <section className="relative min-h-[100svh] overflow-hidden px-6 pt-28 pb-14 md:px-12 md:pt-32 md:pb-16">
-      {/* Soft paper-blue wash — same family as About photo */}
+    <section className="relative min-h-[100svh] overflow-hidden bg-bg px-6 pt-28 pb-14 md:px-12 md:pt-32 md:pb-16">
       <div
-        className="gradient-paper-soft pointer-events-none absolute inset-0 opacity-90"
+        className="gradient-paper-soft pointer-events-none absolute inset-0 opacity-100"
         aria-hidden
       />
 
@@ -44,7 +43,7 @@ export function Hero({ locale, ui }: HeroProps) {
           {[...ui.identity.schools, ui.city].map((chip) => (
             <span
               key={chip}
-              className="rounded-full border border-line bg-soft/70 px-3.5 py-1.5 text-xs text-ink/80 backdrop-blur-[2px] md:text-sm"
+              className="rounded-full border border-line bg-surface px-3.5 py-1.5 text-xs text-ink/80 md:text-sm"
             >
               {chip}
             </span>
@@ -55,14 +54,14 @@ export function Hero({ locale, ui }: HeroProps) {
           <a
             href={ui.resumePdf}
             download
-            className="inline-flex items-center rounded-full bg-signal px-5 py-2.5 text-sm font-medium text-white shadow-[0_1px_0_rgba(26,35,50,0.08)] transition-opacity hover:opacity-90"
+            className="inline-flex items-center rounded-full bg-signal px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
             data-cursor="pdf"
           >
             {ui.hero.ctaResume}
           </a>
           <a
             href={`mailto:${ui.email}`}
-            className="inline-flex items-center rounded-full border border-line bg-bg/70 px-5 py-2.5 text-sm text-ink transition-colors hover:border-ink"
+            className="inline-flex items-center rounded-full border border-line bg-bg px-5 py-2.5 text-sm text-ink transition-colors hover:border-ink"
             data-cursor="view"
           >
             {ui.hero.ctaEmail}

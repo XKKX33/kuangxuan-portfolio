@@ -15,7 +15,7 @@ export function ContactBand({ locale, ui }: ContactBandProps) {
   return (
     <section
       id="contact-band"
-      className="gradient-contact border-t border-line px-6 py-16 text-ink-inverse md:px-12 md:py-24"
+      className="border-t border-line bg-surface-dark px-6 py-16 text-ink-inverse md:px-12 md:py-24"
       aria-labelledby="contact-heading"
     >
       <p className="font-mono text-xs tracking-[0.18em] text-white/45 uppercase">
@@ -39,7 +39,7 @@ export function ContactBand({ locale, ui }: ContactBandProps) {
           {ui.email}
         </a>
         <a
-          className="rounded-full border border-white/25 px-6 py-3 text-sm text-white/90 transition-colors hover:border-white/50 hover:text-white"
+          className="rounded-full border border-white/25 bg-white px-6 py-3 text-sm font-medium text-ink transition-opacity hover:opacity-90"
           href={ui.resumePdf}
           download
           data-cursor="pdf"

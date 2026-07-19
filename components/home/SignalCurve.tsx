@@ -49,7 +49,7 @@ export function SignalCurve({ className = "" }: SignalCurveProps) {
 
   return (
     <svg
-      className={`pointer-events-none absolute inset-x-0 bottom-[14%] h-36 w-full opacity-20 md:h-44 ${className}`}
+      className={`pointer-events-none absolute inset-x-0 bottom-[14%] h-36 w-full opacity-[0.08] md:h-44 ${className}`}
       viewBox="0 0 1200 160"
       fill="none"
       aria-hidden
