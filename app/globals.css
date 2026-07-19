@@ -1,37 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  /* Palette A — 纸上淡蓝 (photo-gradient language, Dennis blue) */
-  --bg: #f1f0ee;
-  --ink: #1c1d20;
-  --muted: #8c8c8c;
-  --line: #d8d4cb;
-  --signal: #455ce9;
-  --signal-mist: rgba(69, 92, 233, 0.13);
-  --paper-warm: #d8d4cb;
-  --paper-mid: #f1f0ee;
-  --ink-inverse: #f1f0ee;
-  --surface-dark: #1c1d20;
+  /* Palette 4 — Pastel Tech (cool blue-gray paper + signal blue) */
+  --bg: #f0f4f8;
+  --ink: #1a2332;
+  --muted: #5c6b7a;
+  --line: #c5d0dc;
+  --signal: #2563eb;
+  --soft: #dbeafe;
+  --ink-inverse: #f0f4f8;
+  --surface-dark: #152033;
 
-  /* Shared decorative gradient: warm gray → paper → blue mist */
-  --gradient-paper: linear-gradient(
-    160deg,
-    var(--paper-warm) 0%,
-    var(--paper-mid) 45%,
-    var(--signal-mist) 100%
-  );
+  /* Cool Pastel Tech gradients (no warm beige) */
+  --gradient-paper: linear-gradient(160deg, #d5dee8 0%, #f0f4f8 46%, #dbeafe 100%);
   --gradient-paper-soft: linear-gradient(
-    165deg,
-    color-mix(in srgb, var(--paper-warm) 55%, var(--bg)) 0%,
-    var(--bg) 52%,
-    color-mix(in srgb, var(--signal) 8%, var(--bg)) 100%
+    168deg,
+    #e4ebf2 0%,
+    #f0f4f8 52%,
+    color-mix(in srgb, #2563eb 8%, #f0f4f8) 100%
   );
-  --gradient-card: linear-gradient(
-    145deg,
-    var(--paper-warm) 0%,
-    #ebe8e2 40%,
-    color-mix(in srgb, var(--signal) 16%, #e8e6e0) 100%
-  );
+  --gradient-card: linear-gradient(148deg, #e2eaf2 0%, #f0f4f8 42%, #dbeafe 100%);
+  --gradient-contact: linear-gradient(165deg, #152033 0%, #1a2a42 55%, #1e3a5f 100%);
 
   --font-display: "Times New Roman", Times, "Songti SC", "SimSun", "Noto Serif SC",
     serif;
@@ -47,6 +36,7 @@
   --color-muted: var(--muted);
   --color-line: var(--line);
   --color-signal: var(--signal);
+  --color-soft: var(--soft);
   --color-ink-inverse: var(--ink-inverse);
   --color-surface-dark: var(--surface-dark);
   --font-display: var(--font-display);
@@ -68,7 +58,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Utility: same family as About photo placeholder */
+/* Utility: cool Pastel Tech paper washes */
 .gradient-paper {
   background: var(--gradient-paper);
 }
@@ -79,6 +69,10 @@ body {
 
 .gradient-card {
   background: var(--gradient-card);
+}
+
+.gradient-contact {
+  background: var(--gradient-contact);
 }
 
 ::selection {

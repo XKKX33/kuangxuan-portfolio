@@ -44,7 +44,7 @@ export function Hero({ locale, ui }: HeroProps) {
           {[...ui.identity.schools, ui.city].map((chip) => (
             <span
               key={chip}
-              className="rounded-full border border-line bg-bg/80 px-3.5 py-1.5 text-xs text-ink/80 backdrop-blur-[2px] md:text-sm"
+              className="rounded-full border border-line bg-soft/70 px-3.5 py-1.5 text-xs text-ink/80 backdrop-blur-[2px] md:text-sm"
             >
               {chip}
             </span>
@@ -55,7 +55,7 @@ export function Hero({ locale, ui }: HeroProps) {
           <a
             href={ui.resumePdf}
             download
-            className="inline-flex items-center rounded-full bg-signal px-5 py-2.5 text-sm font-medium text-white shadow-[0_1px_0_rgba(28,29,32,0.06)] transition-opacity hover:opacity-90"
+            className="inline-flex items-center rounded-full bg-signal px-5 py-2.5 text-sm font-medium text-white shadow-[0_1px_0_rgba(26,35,50,0.08)] transition-opacity hover:opacity-90"
             data-cursor="pdf"
           >
             {ui.hero.ctaResume}

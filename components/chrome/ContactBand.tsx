@@ -15,7 +15,7 @@ export function ContactBand({ locale, ui }: ContactBandProps) {
   return (
     <section
       id="contact-band"
-      className="border-t border-line bg-surface-dark px-6 py-16 text-ink-inverse md:px-12 md:py-24"
+      className="gradient-contact border-t border-line px-6 py-16 text-ink-inverse md:px-12 md:py-24"
       aria-labelledby="contact-heading"
     >
       <p className="font-mono text-xs tracking-[0.18em] text-white/45 uppercase">
