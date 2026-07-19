@@ -34,7 +34,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="flex min-h-full flex-col bg-bg text-ink">
+      <body className="flex min-h-full flex-col bg-bg font-body text-ink">
         <a className="skip-link" href="#main">
           跳到主要内容 / Skip to content
         </a>

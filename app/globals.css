@@ -15,12 +15,11 @@
   --gradient-card: #f5f5f7;
   --gradient-contact: #1d1d1f;
 
-  --font-display: "Times New Roman", Times, "Songti SC", "SimSun", "Noto Serif SC",
-    serif;
-  --font-body: "Times New Roman", Times, "Songti SC", "SimSun", "Noto Serif SC",
-    serif;
-  --font-mono: "Times New Roman", Times, "Songti SC", "SimSun", "Noto Serif SC",
-    serif;
+  /* Stacks as distinct names — avoid circular var(--font-*) in @theme */
+  --stack-serif: "Times New Roman", Times, "Songti SC", "宋体", SimSun, "NSimSun",
+    "Noto Serif SC", STSong, serif;
+  --stack-mono: ui-monospace, "SF Mono", "Segoe UI Mono", "Cascadia Code", Consolas,
+    monospace;
 }
 
 @theme inline {
@@ -32,9 +31,13 @@
   --color-signal: var(--signal);
   --color-ink-inverse: var(--ink-inverse);
   --color-surface-dark: var(--surface-dark);
-  --font-display: var(--font-display);
-  --font-body: var(--font-body);
-  --font-mono: var(--font-mono);
+
+  /* Override Tailwind defaults so font-sans / preflight also use serif */
+  --font-sans: var(--stack-serif);
+  --font-serif: var(--stack-serif);
+  --font-display: var(--stack-serif);
+  --font-body: var(--stack-serif);
+  --font-mono: var(--stack-mono);
 }
 
 html {
@@ -42,15 +45,31 @@ html {
   color: var(--ink);
 }
 
+html,
 body {
-  font-family: var(--font-body);
+  font-family: var(--stack-serif);
+}
+
+body {
   background: var(--bg);
   color: var(--ink);
   overflow-x: clip;
   font-feature-settings: "kern" 1, "liga" 1;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Serif looks softer without heavy grayscale AA on Windows */
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+/* Force utilities that components already use */
+.font-display,
+.font-body,
+.font-sans {
+  font-family: var(--stack-serif) !important;
+}
+
+.font-mono {
+  font-family: var(--stack-serif) !important;
 }
 
 .gradient-paper {
